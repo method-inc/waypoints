@@ -6,6 +6,7 @@ var HISTORY_LENGTH = 5;
 
 function Waypoint() {
   this._ignore = undefined;
+  this._debug = false;
 }
 
 Waypoint.prototype = {
@@ -18,22 +19,31 @@ Waypoint.prototype = {
       this.target(undefined);
       // If this is not the link target, redirect to the last page in our history
       if (target !== this.route()) {
+        if (this._debug) console.log('Waypoint.resume(): bad link -- target (' + target + ') does not match route (' + this.route() + '), redirecting...');
         this.redirect();
         return this;
       }
+      if (this._debug) console.log('Waypoint.resume(): good link -- arrived at target(' + target + '), bookmarking...');
       this.bookmark();
     }
     // If this route is not in the history, it was unintentional, and we should get back on track
     else if (this.route() !== this.latest()) {
+      if (this._debug) console.log('Waypoint.resume(): bad route -- route(' + this.route() + ') does not match latest (' + this.latest() + '), redirecting...');
       this.redirect();
       return this;
     }
     // Callback if we're staying on this page
+    if (this._debug) console.log('Waypoint.resume(): good route -- arrived at route(' + this.route() + '), triggering callback...');
     if (done) done();
     return this;
   },
 
   // Methods that manipulate state
+
+  debug: function(val) {
+    if (arguments.length === 0) return this._debug;
+    this._debug = val;
+  },
 
   clear: function() {
     localStorage.removeItem(HISTORY_KEY);
