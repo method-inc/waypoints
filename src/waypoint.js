@@ -130,9 +130,10 @@ Waypoint.prototype = {
 
   // store a url as a link target and navigate to it
   navigate: function(url) {
-    if (this._debug) console.log('Waypoint.navigate(): navigating to', url);
-    this.target(url);
-    this.route(url);
+    var route = qualifyUrl(url);
+    if (this._debug) console.log('Waypoint.navigate(): navigating to', route);
+    this.target(route);
+    this.route(route);
     return this;
   },
 
@@ -158,9 +159,7 @@ Waypoint.prototype = {
     if ($(target).is(this._ignore)) return true;
 
     var href = $(target).attr('href');
-    var route = qualifyUrl(href);
-
-    this.navigate(route);
+    this.navigate(href);
     return false;
   }
 };
