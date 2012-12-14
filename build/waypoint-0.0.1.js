@@ -14,12 +14,14 @@ Waypoint.prototype = {
   resume: function(done) {
     var history = this.history();
     var target = this.target();
+    var latest = this.latest();
+    var route = this.route();
     // Is the user following a link?
     if (target) {
       this.target(undefined);
       // If this is not the link target, redirect to the last page in our history
-      if (target !== this.route()) {
-        if (this._debug) console.log('Waypoint.resume(): bad link -- target (' + target + ') does not match route (' + this.route() + '), redirecting...');
+      if (target !== route) {
+        if (this._debug) console.log('Waypoint.resume(): bad link -- target (' + target + ') does not match route (' + route + '), redirecting...');
         this.redirect();
         return this;
       }
@@ -27,13 +29,13 @@ Waypoint.prototype = {
       this.bookmark();
     }
     // If this route is not in the history, it was unintentional, and we should get back on track
-    else if (this.route() !== this.latest()) {
-      if (this._debug) console.log('Waypoint.resume(): bad route -- route(' + this.route() + ') does not match latest (' + this.latest() + '), redirecting...');
+    else if (latest && route !== latest) {
+      if (this._debug) console.log('Waypoint.resume(): bad route -- route(' + route + ') does not match latest (' + latest + '), redirecting...');
       this.redirect();
       return this;
     }
     // Callback if we're staying on this page
-    if (this._debug) console.log('Waypoint.resume(): good route -- arrived at route(' + this.route() + '), triggering callback...');
+    if (this._debug) console.log('Waypoint.resume(): good route -- arrived at route(' + route + '), triggering callback...');
     if (done) done();
     return this;
   },
