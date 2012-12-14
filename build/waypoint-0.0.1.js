@@ -150,16 +150,21 @@ Waypoint.prototype = {
   intercept: function(selector) {
     var self = this;
     $(document).on('click', selector, function(event) {
-      return self._onClick(event.target);
+      return self._onClick(this);
     });
     return this;
   },
 
   _onClick: function(target) {
-    if ($(target).is(this._ignore)) return true;
+    if ($(target).is(this._ignore)) {
+      if (this._debug) console.log('Waypoint.intercept(): ignoring click');
+      return true;
+    }
 
     var href = $(target).attr('href');
+    if (this._debug) console.log('Waypoint.intercept(): intercepting click with href:', href);
     this.navigate(href);
+
     return false;
   }
 };
