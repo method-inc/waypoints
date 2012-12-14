@@ -55,7 +55,9 @@ Waypoint.prototype = {
   },
 
   bookmark: function() {
-    this.push(this.route());
+    var route = this.route();
+    if (this._debug) console.log('Waypoint.bookmark(): bookmarking', route);
+    this.push(route);
     return this;
   },
 
@@ -128,6 +130,7 @@ Waypoint.prototype = {
 
   // store a url as a link target and navigate to it
   navigate: function(url) {
+    if (this._debug) console.log('Waypoint.navigate(): navigating to', url);
     this.target(url);
     this.route(url);
     return this;
