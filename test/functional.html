@@ -1,0 +1,22 @@
+<html>
+<body>
+
+<h1>Start</h1>
+
+<p id='history'></p>
+
+<a href='functional1.html'>Should link to 1</a><br />
+<a href='functional2.html'>Should link to 2</a><br />
+<a class='external' href='functional3.html'>An external link</a>
+
+<script src='../vendor/zepto.js'></script>
+<script src='../src/waypoint.js'></script>
+<script>
+
+Waypoint.clear().intercept('a').ignore('.external, .dynamic');
+
+$('#history').text(JSON.stringify(Waypoint.history()));
+
+</script>
+</body>
+</html>

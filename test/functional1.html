@@ -1,0 +1,35 @@
+<html>
+<body>
+
+<h1>1</h1>
+
+<p id='history'></p>
+
+<a href='functional2.html'>Should link to 2</a><br />
+<a href='404.html'>Broken link</a></br />
+<a class='external' href='functional3.html'>External link</a><br />
+<a class='dynamic' href='#back'>Should link back</a><br />
+
+<script src='../vendor/zepto.js'></script>
+<script src='../src/waypoint.js'></script>
+<script>
+
+$(document).ready(function() {
+  Waypoint.intercept('a').ignore('.external, .dynamic').resume(onReady);
+
+  function onReady() {
+    console.log('staying on this page:', Waypoint.route());
+
+    $(document).on('click', 'a.dynamic', function(e) {
+      var href = $(e.target).attr('href');
+      if (href === '#back') Waypoint.back();
+      return false;
+    });
+
+    $('#history').text(JSON.stringify(Waypoint.history()));
+  }
+});
+
+</script>
+</body>
+</html>
