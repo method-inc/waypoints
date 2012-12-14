@@ -13,7 +13,7 @@
 <script src='../src/waypoint.js'></script>
 <script>
 
-Waypoint.clear().intercept('a').ignore('.external, .dynamic');
+Waypoint.debug(true).clear().intercept('a').ignore('.external, .dynamic');
 
 $('#history').text(JSON.stringify(Waypoint.history()));
 

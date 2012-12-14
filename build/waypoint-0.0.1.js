@@ -43,6 +43,7 @@ Waypoint.prototype = {
   debug: function(val) {
     if (arguments.length === 0) return this._debug;
     this._debug = val;
+    return this;
   },
 
   clear: function() {
@@ -71,9 +72,10 @@ Waypoint.prototype = {
     }
     if (val) {
       localStorage.setItem(HISTORY_KEY, JSON.stringify(val));
-      return;
+      return this;
     }
     localStorage.removeItem(HISTORY_KEY);
+    return this;
   },
 
   target: function(val) {
@@ -83,9 +85,10 @@ Waypoint.prototype = {
     }
     if (val) {
       localStorage.setItem(TARGET_KEY, JSON.stringify(val));
-      return;
+      return this;
     }
     localStorage.removeItem(TARGET_KEY);
+    return this;
   },
 
   ignore: function(selector) {
@@ -100,6 +103,7 @@ Waypoint.prototype = {
   route: function(route) {
     if (arguments.length === 0) return window.location.href;
     window.location = route;
+    return this;
   },
 
   // redirect to the latest history entry
@@ -117,12 +121,14 @@ Waypoint.prototype = {
       this.history(history);
       this.redirect();
     }
+    return this;
   },
 
   // store a url as a link target and navigate to it
   navigate: function(url) {
     this.target(url);
     this.route(url);
+    return this;
   },
 
   // Getters

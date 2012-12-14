@@ -15,10 +15,9 @@
 <script>
 
 $(document).ready(function() {
-  Waypoint.intercept('a').ignore('.external, .dynamic').resume(onReady);
+  Waypoint.debug(true).intercept('a').ignore('.external, .dynamic').resume(onReady);
 
   function onReady() {
-    console.log('staying on this page:', Waypoint.route());
 
     $(document).on('click', 'a.dynamic', function(e) {
       var href = $(e.target).attr('href');
