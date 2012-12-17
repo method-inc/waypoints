@@ -144,6 +144,17 @@ Waypoints.prototype = {
     return this;
   },
 
+  open: function(url) {
+    if (this._debug) console.log('Waypoints.open(): opening safari for', url);
+    var a = document.createElement('a');
+    a.setAttribute('href', url);
+    a.setAttribute('target', '_blank');
+
+    var dispatch = document.createEvent('HTMLEvents');
+    dispatch.initEvent('click', true, true);
+    a.dispatchEvent(dispatch);
+  },
+
   // Getters
 
   latest: function() {
