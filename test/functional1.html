@@ -1,4 +1,7 @@
 <html>
+<head>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
 <body>
 
 <h1>1</h1>
@@ -9,6 +12,10 @@
 <a href='404.html'>Broken link</a></br />
 <a class='external' href='functional3.html'>External link</a><br />
 <a class='dynamic' href='#back'>Should link back</a><br />
+<a class='dynamic historyGo' href='#'>History.go(-1)</a><br />
+<a class='external' href='functional3.html' target='_blank'>Link with target</a><br />
+<a class='external' href='functional3.html'>Link without target</a><br />
+<a class='dynamic openBlank' href='#'>Window.open()</a><br />
 
 <script src='../vendor/zepto.js'></script>
 <script src='../src/waypoints.js'></script>
@@ -21,8 +28,20 @@ $(document).ready(function() {
 
     $(document).on('click', 'a.dynamic', function(e) {
       var href = $(e.target).attr('href');
-      if (href === '#back') Waypoints.back();
-      return false;
+      if (href === '#back') {
+        Waypoints.back();
+        return false;
+      }
+      else if ($(e.target).hasClass('historyGo')) {
+        window.history.go(-1);
+        return false;
+      }
+      else if ($(e.target).hasClass('openBlank')) {
+        //window.open('functional3.html', '_blank');
+        console.log('Waypoints.open:', Waypoints.open);
+        Waypoints.open('functional3.html');
+        return false;
+      }
     });
 
     $('#history').text(JSON.stringify(Waypoints.history()));

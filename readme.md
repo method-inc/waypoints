@@ -87,8 +87,8 @@ Waypoints keeps its own history in LocalStorage. When you call `Waypoints.resume
 * [http://stackoverflow.com/questions/4291784/stop-native-web-app-from-reloading-itself-upon-opening-on-ios](http://stackoverflow.com/questions/4291784/stop-native-web-app-from-reloading-itself-upon-opening-on-ios)
 * [http://stackoverflow.com/questions/12816286/resume-webapp-from-previous-position](http://stackoverflow.com/questions/12816286/resume-webapp-from-previous-position)
 
-## Back and forward navigation.
-Web app mode breaks `history.go()`, but Waypoints provides `Waypoints.go()` with the same signature.
+## Relative navigation.
+Web app mode breaks `history.go/back/forward`, but Waypoints provides `Waypoints.back()`.
 
 * [http://stackoverflow.com/questions/8884376/iphone-safari-web-app-opens-links-in-new-window-when-using-javascripthistory-go](http://stackoverflow.com/questions/8884376/iphone-safari-web-app-opens-links-in-new-window-when-using-javascripthistory-go)
 
