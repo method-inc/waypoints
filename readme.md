@@ -18,12 +18,16 @@ The [problems and fixes](#fixes) are documented in detail below.
 
 Waypoints depends on either Zepto or jQuery (Zepto recommended for mobile development).
 
+### Downloads:
+- [Production](https://github.com/Skookum/waypoints/blob/master/build/waypoints-0.0.1.min.js) (3kb, minified)
+- [Debug](https://raw.github.com/Skookum/waypoints/master/build/waypoints-0.0.1.js) (5kb)
+
 ```html
 <a href='/account.html'>This will stay in your app</a>
 <a href='http://usesafari.com' class='external'>This will open with Safari</a>
 
 <script type='text/javascript' src='zepto.js'></script>
-<script type='text/javascript' src='waypoints.js'></script>
+<script type='text/javascript' src='waypoints-0.0.1.js'></script>
 <script>
   Waypoints
     .debug(true)
