@@ -32,3 +32,29 @@ Waypoints.intercept('a').resume();
   }
 </script>
 ```
+
+## API
+
+### intercept(selector)
+
+Intercepts clicks (and taps) on `selector`, opening their `href` target within the app.
+
+Without interception, links in home-screen web apps exit the app and open in Safari.
+
+### resume(callback)
+
+Restores the app's last observed state, optionally triggering a callback function once the app has been resumed.
+
+Home-screen web apps don't have state in iOS.
+Returning the user to your home screen every time they navigate away from your app, then back, is a terrible user experience.
+Every time Waypoint intercepts a link, it adds that link to its own history object in LocalStorage so that your app can return the user to where she left off.
+
+### ignore(selector)
+
+Intercepted clicks that match `selector` will be ignored and passed on as regular events.
+
+Sometimes you want a link to open outside of your app (for example, a maps link).
+
+### debug(value)
+
+Turns verbose console debugging on (true) or off (false). False by default.
