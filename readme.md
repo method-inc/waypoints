@@ -92,7 +92,7 @@ Web app mode breaks `history.go()`, but Waypoints provides `Waypoints.go()` with
 
 * [http://stackoverflow.com/questions/8884376/iphone-safari-web-app-opens-links-in-new-window-when-using-javascripthistory-go](http://stackoverflow.com/questions/8884376/iphone-safari-web-app-opens-links-in-new-window-when-using-javascripthistory-go)
 
-## Window.open().
+## Window.open() with targets.
 Web app mode also breaks `window.open()`, but Waypoints provides `Waypoints.open()` with the same signature.
 
 * [http://stackoverflow.com/questions/8436676/iphone-window-openurl-blank-does-not-open-links-in-mobile-safari](http://stackoverflow.com/questions/8436676/iphone-window-openurl-blank-does-not-open-links-in-mobile-safari)
