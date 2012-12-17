@@ -19,7 +19,7 @@ You want your users to be able to use your HTML5 app like a native app. However:
 * [http://stackoverflow.com/questions/12161479/apple-mobile-web-app-capable-site-switches-to-mobile-safari-after-logout](http://stackoverflow.com/questions/12161479/apple-mobile-web-app-capable-site-switches-to-mobile-safari-after-logout)
 * [http://stackoverflow.com/questions/6429492/how-do-you-keep-an-iphone-ipad-web-app-in-full-screen-mode](http://stackoverflow.com/questions/6429492/how-do-you-keep-an-iphone-ipad-web-app-in-full-screen-mode)
 
-### 2. Web app mode forgets history as soon as your app loses focus, losing the user's place in your app.
+### 2. Web app mode forgets history as soon as your app loses focus, kicking the user back to home.
 * [http://stackoverflow.com/questions/6930771/stop-reloading-of-web-app-launched-from-iphone-home-screen](http://stackoverflow.com/questions/6930771/stop-reloading-of-web-app-launched-from-iphone-home-screen)
 * [http://stackoverflow.com/questions/4291784/stop-native-web-app-from-reloading-itself-upon-opening-on-ios](http://stackoverflow.com/questions/4291784/stop-native-web-app-from-reloading-itself-upon-opening-on-ios)
 * [http://stackoverflow.com/questions/12816286/resume-webapp-from-previous-position](http://stackoverflow.com/questions/12816286/resume-webapp-from-previous-position)
