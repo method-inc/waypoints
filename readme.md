@@ -72,7 +72,8 @@ Waypoints.debug(true); // Get verbose debugging info in the console. False by de
 These are the iOS 'web app mode' issues that Waypoints fixes:
 
 ## Links exit full-screen mode.
-Regular links are opened in Safari, but JavaScript-based navigation stays within the app.
+In full-screen mode, regular links are opened in Safari, but JavaScript-based navigation stays within the app.
+Thus, when your user taps a link, they're kicked out of your app and into Safari.
 Waypoints fixes regular links by intercepting them and navigating to their `href` attribute with JavaScript.
 
 * [http://stackoverflow.com/questions/12161479/apple-mobile-web-app-capable-site-switches-to-mobile-safari-after-logout](http://stackoverflow.com/questions/12161479/apple-mobile-web-app-capable-site-switches-to-mobile-safari-after-logout)
