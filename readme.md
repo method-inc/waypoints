@@ -2,9 +2,8 @@
 
 Drop-in HTML5 navigation fixes for [web app mode](http://developer.apple.com/library/ios/#DOCUMENTATION/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html) on iOS.
 
-Waypoints fixes these iOS web app quirks:
-  * Links opening in Safari (instead if in your app).
-  * Location and history being abandoned as soon as your app is closed.
+  * Opens app links in your app (instead of exiting your app and opening in Safari).
+  * Retains navigation for your app (instead of returning the user to the bookmarked homepage every time the app is opened).
 
 ```js
 Waypoints.intercept('a').resume();
