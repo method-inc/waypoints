@@ -55,28 +55,28 @@ You want your users to be able to use your HTML5 app like a native app. However:
 </script>
 ```
 
-# API
+## API
 
-## .intercept(selector)
+### .intercept(selector)
 
-Intercepts clicks (and taps) on `selector`, opening their `href` target within the app.
+```js
+Waypoints.intercept('a'); // Handle links in your full-screen app (and not in Safari)
+```
 
-Without interception, links in home-screen web apps exit the app and open in Safari.
+### .resume(callback)
 
-## .resume(callback)
+```js
+Waypoints.resume(); // Navigate to the last visited page of your application
+```
 
-Restores the app's last observed state, optionally triggering a callback function once the app has been resumed.
+### .ignore(selector)
 
-Home-screen web apps don't have state in iOS.
-Returning the user to your home screen every time they navigate away from your app, then back, is a terrible user experience.
-Every time Waypoint intercepts a link, it adds that link to its own history object in LocalStorage so that your app can return the user to where she left off.
+```js
+Waypoints.ignore('.external'); // Links with the 'external' class will be ignored by Waypoints
+```
 
-## .ignore(selector)
+### .debug(value)
 
-Intercepted clicks that match `selector` will be ignored and passed on as regular events.
-
-Sometimes you want a link to open outside of your app (for example, a maps link).
-
-## .debug(value)
-
-Turns verbose console debugging on (true) or off (false). False by default.
+```js
+Waypoints.debug(true); // Get verbose debugging info in the console. False by default;
+```
