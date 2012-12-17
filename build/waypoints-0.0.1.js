@@ -1,41 +1,48 @@
 ;(function($, window, document, undefined) {
 
-var HISTORY_KEY = 'Waypoint.history';
-var TARGET_KEY = 'Waypoint.target';
+var HISTORY_KEY = 'Waypoints.history';
+var TARGET_KEY = 'Waypoints.target';
 var HISTORY_LENGTH = 5;
 
-function Waypoint() {
+function Waypoints() {
   this._ignore = undefined;
   this._debug = false;
 }
 
-Waypoint.prototype = {
+Waypoints.prototype = {
 
   resume: function(done) {
     var history = this.history();
     var target = this.target();
     var latest = this.latest();
     var route = this.route();
+
     // Is the user following a link?
     if (target) {
+
+      // Clear the link target so we avoid infinite loops
       this.target(undefined);
+
       // If this is not the link target, redirect to the last page in our history
       if (target !== route) {
-        if (this._debug) console.log('Waypoint.resume(): bad link -- target (' + target + ') does not match route (' + route + '), redirecting...');
+        if (this._debug) console.log('Waypoints.resume(): bad link -- target (' + target + ') does not match route (' + route + '), redirecting...');
         this.redirect();
         return this;
       }
-      if (this._debug) console.log('Waypoint.resume(): good link -- arrived at target(' + target + '), bookmarking...');
+
+      if (this._debug) console.log('Waypoints.resume(): good link -- arrived at target(' + target + '), bookmarking...');
       this.bookmark();
     }
-    // If this route is not in the history, it was unintentional, and we should get back on track
+
+    // If this route is not in the history, it was unintentional, and we should redirect
     else if (latest && route !== latest) {
-      if (this._debug) console.log('Waypoint.resume(): bad route -- route(' + route + ') does not match latest (' + latest + '), redirecting...');
+      if (this._debug) console.log('Waypoints.resume(): bad route -- route(' + route + ') does not match latest (' + latest + '), redirecting...');
       this.redirect();
       return this;
     }
+
     // Callback if we're staying on this page
-    if (this._debug) console.log('Waypoint.resume(): good route -- arrived at route(' + route + '), triggering callback...');
+    if (this._debug) console.log('Waypoints.resume(): good route -- arrived at route(' + route + '), triggering callback...');
     if (done) done();
     return this;
   },
@@ -56,7 +63,7 @@ Waypoint.prototype = {
 
   bookmark: function() {
     var route = this.route();
-    if (this._debug) console.log('Waypoint.bookmark(): bookmarking', route);
+    if (this._debug) console.log('Waypoints.bookmark(): bookmarking', route);
     this.push(route);
     return this;
   },
@@ -131,7 +138,7 @@ Waypoint.prototype = {
   // store a url as a link target and navigate to it
   navigate: function(url) {
     var route = qualifyUrl(url);
-    if (this._debug) console.log('Waypoint.navigate(): navigating to', route);
+    if (this._debug) console.log('Waypoints.navigate(): navigating to', route);
     this.target(route);
     this.route(route);
     return this;
@@ -157,12 +164,12 @@ Waypoint.prototype = {
 
   _onClick: function(target) {
     if ($(target).is(this._ignore)) {
-      if (this._debug) console.log('Waypoint.intercept(): ignoring click');
+      if (this._debug) console.log('Waypoints.intercept(): ignoring click');
       return true;
     }
 
     var href = $(target).attr('href');
-    if (this._debug) console.log('Waypoint.intercept(): intercepting click with href:', href);
+    if (this._debug) console.log('Waypoints.intercept(): intercepting click with href:', href);
     this.navigate(href);
 
     return false;
@@ -175,6 +182,6 @@ function qualifyUrl(url) {
   return a.href;
 }
 
-window.Waypoint = new Waypoint();
+window.Waypoints = new Waypoints();
 
 })(window.jQuery || window.Zepto, window, document);

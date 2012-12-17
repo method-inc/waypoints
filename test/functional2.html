@@ -11,21 +11,21 @@
 <a class='dynamic' href='#back'>Should link back</a><br />
 
 <script src='../vendor/zepto.js'></script>
-<script src='../src/waypoint.js'></script>
+<script src='../src/waypoints.js'></script>
 <script>
 
 $(document).ready(function() {
-  Waypoint.debug(true).intercept('a').ignore('.external, .dynamic').resume(onReady);
+  Waypoints.debug(true).intercept('a').ignore('.external, .dynamic').resume(onReady);
 
   function onReady() {
 
     $(document).on('click', 'a.dynamic', function(e) {
       var href = $(e.target).attr('href');
-      if (href === '#back') Waypoint.back();
+      if (href === '#back') Waypoints.back();
       return false;
     });
 
-    $('#history').text(JSON.stringify(Waypoint.history()));
+    $('#history').text(JSON.stringify(Waypoints.history()));
   }
 });
 

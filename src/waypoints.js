@@ -16,24 +16,31 @@ Waypoints.prototype = {
     var target = this.target();
     var latest = this.latest();
     var route = this.route();
+
     // Is the user following a link?
     if (target) {
+
+      // Clear the link target so we avoid infinite loops
       this.target(undefined);
+
       // If this is not the link target, redirect to the last page in our history
       if (target !== route) {
         if (this._debug) console.log('Waypoints.resume(): bad link -- target (' + target + ') does not match route (' + route + '), redirecting...');
         this.redirect();
         return this;
       }
+
       if (this._debug) console.log('Waypoints.resume(): good link -- arrived at target(' + target + '), bookmarking...');
       this.bookmark();
     }
-    // If this route is not in the history, it was unintentional, and we should get back on track
+
+    // If this route is not in the history, it was unintentional, and we should redirect
     else if (latest && route !== latest) {
       if (this._debug) console.log('Waypoints.resume(): bad route -- route(' + route + ') does not match latest (' + latest + '), redirecting...');
       this.redirect();
       return this;
     }
+
     // Callback if we're staying on this page
     if (this._debug) console.log('Waypoints.resume(): good route -- arrived at route(' + route + '), triggering callback...');
     if (done) done();

@@ -10,12 +10,12 @@
 <a class='external' href='functional3.html'>An external link</a>
 
 <script src='../vendor/zepto.js'></script>
-<script src='../src/waypoint.js'></script>
+<script src='../src/waypoints.js'></script>
 <script>
 
-Waypoint.debug(true).clear().intercept('a').ignore('.external, .dynamic');
+Waypoints.debug(true).clear().intercept('a').ignore('.external, .dynamic');
 
-$('#history').text(JSON.stringify(Waypoint.history()));
+$('#history').text(JSON.stringify(Waypoints.history()));
 
 </script>
 </body>
