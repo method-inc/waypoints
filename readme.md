@@ -15,6 +15,17 @@ Waypoints.intercept('a').resume();
 ```html
 <script type='text/javascript' src='waypoints.js'></script>
 <script>
-  Waypoints.intercept('a').resume();
+  Waypoints
+    .debug(true)
+    .intercept('a')
+    .ignore('.external')
+    .resume(onReady);
+
+  // At this point, we know our application has restored its state and is in the right place.
+  // If the web app was opened from the home screen, it has been redirected to the last
+  // location the user had navigated to.
+  function onReady() {
+
+  }
 </script>
 ```
