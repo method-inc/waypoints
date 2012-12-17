@@ -12,7 +12,7 @@ Waypoints.intercept('a').resume();
 ```
 
 Waypoints fixes these issues so your users can use your HTML5 app like a native app.
-The problems and fixes are documented in detail [below](#problems)
+The [problems and fixes](#fixes) are documented in detail below.
 
 ## Using Waypoints
 
@@ -67,7 +67,7 @@ Waypoints.ignore('.external'); // Links with the 'external' class will be ignore
 Waypoints.debug(true); // Get verbose debugging info in the console. False by default
 ```
 
-# Problems
+# Fixes
 
 These are the iOS 'web app mode' issues that Waypoints fixes:
 
