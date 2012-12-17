@@ -66,30 +66,30 @@ Waypoints.ignore('.external'); // Links with the 'external' class will be ignore
 Waypoints.debug(true); // Get verbose debugging info in the console. False by default
 ```
 
-## Problems
+# Problems
 
 You want your users to be able to use your HTML5 app like a native app. However:
 
-### 1. iOS opens links in a new Safari window instead of navigating within your full-screen app.
+## 1. iOS opens links in a new Safari window instead of navigating within your full-screen app.
 * [http://stackoverflow.com/questions/12161479/apple-mobile-web-app-capable-site-switches-to-mobile-safari-after-logout](http://stackoverflow.com/questions/12161479/apple-mobile-web-app-capable-site-switches-to-mobile-safari-after-logout)
 * [http://stackoverflow.com/questions/6429492/how-do-you-keep-an-iphone-ipad-web-app-in-full-screen-mode](http://stackoverflow.com/questions/6429492/how-do-you-keep-an-iphone-ipad-web-app-in-full-screen-mode)
 
 Regular links are opened in Safari, but JavaScript-based navigation stays within the app.
 Waypoints fixes regular links by intercepting them and navigating to their `href` attribute with JavaScript.
 
-### 2. Web app mode forgets history as soon as your app loses focus, kicking the user back to home.
+## 2. Web app mode forgets history as soon as your app loses focus, kicking the user back to home.
 * [http://stackoverflow.com/questions/6930771/stop-reloading-of-web-app-launched-from-iphone-home-screen](http://stackoverflow.com/questions/6930771/stop-reloading-of-web-app-launched-from-iphone-home-screen)
 * [http://stackoverflow.com/questions/4291784/stop-native-web-app-from-reloading-itself-upon-opening-on-ios](http://stackoverflow.com/questions/4291784/stop-native-web-app-from-reloading-itself-upon-opening-on-ios)
 * [http://stackoverflow.com/questions/12816286/resume-webapp-from-previous-position](http://stackoverflow.com/questions/12816286/resume-webapp-from-previous-position)
 
 Waypoints keeps its own history in LocalStorage. When you call `Waypoints.resume()`, your app is redirected to the user's last visited page.
 
-### 3. You can't navigate back/forward from within a full-screen web app.
+## 3. You can't navigate back/forward from within a full-screen web app.
 * [http://stackoverflow.com/questions/8884376/iphone-safari-web-app-opens-links-in-new-window-when-using-javascripthistory-go](http://stackoverflow.com/questions/8884376/iphone-safari-web-app-opens-links-in-new-window-when-using-javascripthistory-go)
 
 Web app mode breaks `history.go()`, but Waypoints provides `Waypoints.go()` with the same signature.
 
-### 4. Window.open with '_new' doesn't work in full-screen mode.
+## 4. Window.open with '_new' doesn't work in full-screen mode.
 * [http://stackoverflow.com/questions/8436676/iphone-window-openurl-blank-does-not-open-links-in-mobile-safari](http://stackoverflow.com/questions/8436676/iphone-window-openurl-blank-does-not-open-links-in-mobile-safari)
 * [http://stackoverflow.com/questions/8738873/open-external-page-from-iphone-web-app-using-javascript](http://stackoverflow.com/questions/8738873/open-external-page-from-iphone-web-app-using-javascript)
 * [http://stackoverflow.com/questions/6766280/how-do-i-open-a-url-in-a-web-browser-from-an-ios-standalone-webapp](http://stackoverflow.com/questions/6766280/how-do-i-open-a-url-in-a-web-browser-from-an-ios-standalone-webapp)
