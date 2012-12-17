@@ -68,6 +68,7 @@ Waypoints.intercept('a'); // Handle links in your full-screen app (and not in Sa
 ```js
 Waypoints.resume(); // Navigate to the last visited page of your application
 ```
+`callback` is an optional function that will be called only once the application is at the correct URL.
 
 ### .ignore(selector)
 
