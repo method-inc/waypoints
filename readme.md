@@ -11,7 +11,7 @@ Drop-in fixes for [web app mode](http://developer.apple.com/library/ios/#DOCUMEN
 Waypoints.intercept('a').resume();
 ```
 
-These problems and fixes are documented in detail [below](#Problem)
+These problems and fixes are documented in detail [below](#problems)
 
 ## Using Waypoints
 
@@ -66,7 +66,7 @@ Waypoints.ignore('.external'); // Links with the 'external' class will be ignore
 Waypoints.debug(true); // Get verbose debugging info in the console. False by default
 ```
 
-## Problem
+## Problems
 
 You want your users to be able to use your HTML5 app like a native app. However:
 
