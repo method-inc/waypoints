@@ -9,6 +9,14 @@ Drop-in HTML5 navigation fixes for [web app mode](http://developer.apple.com/lib
 Waypoints.intercept('a').resume();
 ```
 
+## The Problem
+
+You want your users to be able to add your HTML5 app to the iOS home screen (like a native app).
+
+However, 'web app mode' does all sorts of screwy things to your app.
+If the user is interrupted by a text message while using your app, all of her navigation will be undone and she will be kicked back to the homepage.
+If she clicks on a regular `<a href...>` link, your app will close and the link will be opened in Safari.
+
 ## Example
 
 ```html
