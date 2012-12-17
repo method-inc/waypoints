@@ -11,7 +11,7 @@ Waypoints.intercept('a').resume();
 
 ## The Problem
 
-You want your users to be able to add your HTML5 app to the iOS home screen (like a native app).
+You want your users to be able to use your HTML5 app like a native app (including launching from the home screen and full-screen operation).
 
 ### However, iOS opens web app links in a new Safari window instead of navigating within your app.
 * [http://stackoverflow.com/questions/12161479/apple-mobile-web-app-capable-site-switches-to-mobile-safari-after-logout](http://stackoverflow.com/questions/12161479/apple-mobile-web-app-capable-site-switches-to-mobile-safari-after-logout)
