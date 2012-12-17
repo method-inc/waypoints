@@ -30,7 +30,7 @@ You want your users to be able to use your HTML5 app like a native app (includin
 * [http://stackoverflow.com/questions/8738873/open-external-page-from-iphone-web-app-using-javascript](http://stackoverflow.com/questions/8738873/open-external-page-from-iphone-web-app-using-javascript)
 * [http://stackoverflow.com/questions/6766280/how-do-i-open-a-url-in-a-web-browser-from-an-ios-standalone-webapp](http://stackoverflow.com/questions/6766280/how-do-i-open-a-url-in-a-web-browser-from-an-ios-standalone-webapp)
 
-## Example
+## Using Waypoints
 
 ```html
 <a href='/account.html'>This will stay in your app</a>
