@@ -1,6 +1,6 @@
 # Waypoints
 
-Drop-in [web app mode](http://developer.apple.com/library/ios/#DOCUMENTATION/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html) navigation fixes for HTML5 mobile apps on iOS.
+Drop-in [web app mode](http://developer.apple.com/library/ios/#DOCUMENTATION/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html) navigation improvements for HTML5 mobile apps on iOS.
 
 Waypoints fixes these iOS web app quirks:
   * Links opening in Safari (instead if in your app).
@@ -10,9 +10,12 @@ Waypoints fixes these iOS web app quirks:
 Waypoints.intercept('a').resume();
 ```
 
-## Usage
+## Example
 
 ```html
+<a href='/account.html'>This will stay in your app</a>
+<a href='http://usesafari.com' class='external'>This will open with Safari</a>
+
 <script type='text/javascript' src='waypoints.js'></script>
 <script>
   Waypoints
