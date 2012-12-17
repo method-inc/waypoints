@@ -2,7 +2,7 @@
 
 Drop-in fixes for [web app mode](http://developer.apple.com/library/ios/#DOCUMENTATION/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html) navigation on iOS.
 
-  1. Keeps links from existing full-screen mode.
+  1. Fixes links exiting full-screen mode.
   2. Fixes navigation history.
   3. Fixes forward/back navigation (`history.go`).
   3. Fixes creating new browser windows (`window.open`)
