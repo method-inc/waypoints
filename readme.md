@@ -34,10 +34,13 @@ You want your users to be able to use your HTML5 app like a native app. However:
 
 ## Using Waypoints
 
+Waypoints depends on either Zepto or jQuery (Zepto recommended for mobile development).
+
 ```html
 <a href='/account.html'>This will stay in your app</a>
 <a href='http://usesafari.com' class='external'>This will open with Safari</a>
 
+<script type='text/javascript' src='zepto.js'></script>
 <script type='text/javascript' src='waypoints.js'></script>
 <script>
   Waypoints
@@ -79,5 +82,5 @@ Waypoints.ignore('.external'); // Links with the 'external' class will be ignore
 ### .debug(value)
 
 ```js
-Waypoints.debug(true); // Get verbose debugging info in the console. False by default;
+Waypoints.debug(true); // Get verbose debugging info in the console. False by default
 ```
