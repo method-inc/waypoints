@@ -3,7 +3,7 @@
 Drop-in fixes for [web app mode](http://developer.apple.com/library/ios/#DOCUMENTATION/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html) navigation on iOS.
 
   1. Fixes links exiting full-screen mode.
-  2. Fixes navigation history.
+  2. Fixes losing state when backgrounded.
   3. Fixes forward/back navigation (`history.go`).
   3. Fixes creating new browser windows (`window.open`)
 
@@ -11,23 +11,23 @@ Drop-in fixes for [web app mode](http://developer.apple.com/library/ios/#DOCUMEN
 Waypoints.intercept('a').resume();
 ```
 
-## The Problems
+## The Problem
 
-You want your users to be able to use your HTML5 app like a native app (including launching from the home screen and full-screen operation).
+You want your users to be able to use your HTML5 app like a native app. However:
 
-### 1. However, iOS opens web app links in a new Safari window instead of navigating within your app.
+### 1. iOS opens links in a new Safari window instead of navigating within your full-screen app.
 * [http://stackoverflow.com/questions/12161479/apple-mobile-web-app-capable-site-switches-to-mobile-safari-after-logout](http://stackoverflow.com/questions/12161479/apple-mobile-web-app-capable-site-switches-to-mobile-safari-after-logout)
 * [http://stackoverflow.com/questions/6429492/how-do-you-keep-an-iphone-ipad-web-app-in-full-screen-mode](http://stackoverflow.com/questions/6429492/how-do-you-keep-an-iphone-ipad-web-app-in-full-screen-mode)
 
-### 2. It also forgets its history as soon as your app loses focus, forcing the user to start navigation over.
+### 2. Web app mode forgets history as soon as your app loses focus, losing the user's place in your app.
 * [http://stackoverflow.com/questions/6930771/stop-reloading-of-web-app-launched-from-iphone-home-screen](http://stackoverflow.com/questions/6930771/stop-reloading-of-web-app-launched-from-iphone-home-screen)
 * [http://stackoverflow.com/questions/4291784/stop-native-web-app-from-reloading-itself-upon-opening-on-ios](http://stackoverflow.com/questions/4291784/stop-native-web-app-from-reloading-itself-upon-opening-on-ios)
 * [http://stackoverflow.com/questions/12816286/resume-webapp-from-previous-position](http://stackoverflow.com/questions/12816286/resume-webapp-from-previous-position)
 
-### 3. Because of these issues, back/forward navigation is broken in 'web app mode'
+### 3. You can't navigate back/forward from within a full-screen web app.
 * [http://stackoverflow.com/questions/8884376/iphone-safari-web-app-opens-links-in-new-window-when-using-javascripthistory-go](http://stackoverflow.com/questions/8884376/iphone-safari-web-app-opens-links-in-new-window-when-using-javascripthistory-go)
 
-### 4. You also can't open links in a new window via JavaScript
+### 4. Opening a new browser window (target='_new') from within JavaScript doesn't work in full-screen mode.
 * [http://stackoverflow.com/questions/8436676/iphone-window-openurl-blank-does-not-open-links-in-mobile-safari](http://stackoverflow.com/questions/8436676/iphone-window-openurl-blank-does-not-open-links-in-mobile-safari)
 * [http://stackoverflow.com/questions/8738873/open-external-page-from-iphone-web-app-using-javascript](http://stackoverflow.com/questions/8738873/open-external-page-from-iphone-web-app-using-javascript)
 * [http://stackoverflow.com/questions/6766280/how-do-i-open-a-url-in-a-web-browser-from-an-ios-standalone-webapp](http://stackoverflow.com/questions/6766280/how-do-i-open-a-url-in-a-web-browser-from-an-ios-standalone-webapp)
