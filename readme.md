@@ -19,7 +19,7 @@ The [problems and fixes](#fixes) are documented in detail below.
 Waypoints depends on either Zepto or jQuery (Zepto recommended for mobile development).
 
 ### Downloads:
-- [Production](https://github.com/Skookum/waypoints/blob/master/build/waypoints-0.0.1.min.js) (3kb, minified)
+- [Production](https://raw.github.com/Skookum/waypoints/master/build/waypoints-0.0.1.min.js) (3kb, minified)
 - [Debug](https://raw.github.com/Skookum/waypoints/master/build/waypoints-0.0.1.js) (5kb)
 
 ```html
@@ -69,6 +69,18 @@ Waypoints.ignore('.external'); // Links with the 'external' class will be ignore
 
 ```js
 Waypoints.debug(true); // Get verbose debugging info in the console. False by default
+```
+
+### .back()
+
+```js
+Waypoints.back(); // Navigates to the previous page
+```
+
+### .open(url)
+
+```js
+Waypoints.open('files/resume.pdf'); // Opens a link in Safari
 ```
 
 # Fixes
