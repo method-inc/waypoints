@@ -1,15 +1,16 @@
 # Waypoints
 
-Drop-in fixes for HTML5 [web app mode](http://developer.apple.com/library/ios/#DOCUMENTATION/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html) navigation on iOS.
+Drop-in fixes for [web app mode](http://developer.apple.com/library/ios/#DOCUMENTATION/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html) navigation on iOS.
 
-  * Opens app links in your app (instead of exiting your app and opening in Safari).
-  * Retains navigation for your app (instead of returning the user to the bookmarked homepage every time the app is opened).
+  1. Opens app links in your app (instead of exiting your app and opening in Safari).
+  2. Retains navigation for your app (instead of returning the user to the bookmarked homepage every time the app is opened).
+  3. Enables opening new browser windows from JavaScript within a full-screen web app (fixes target='_blank').
 
 ```js
 Waypoints.intercept('a').resume();
 ```
 
-## The Problem
+## The Problems
 
 You want your users to be able to use your HTML5 app like a native app (including launching from the home screen and full-screen operation).
 
