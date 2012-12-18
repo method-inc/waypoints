@@ -111,9 +111,13 @@ Waypoints.prototype = {
 
   // Methods that change the URL
 
-  // change the route silently
+  // change the route
   route: function(route) {
     if (arguments.length === 0) return window.location.href;
+    if (this.latest() !== route) {
+      if (shareBase(route, this.route())) this.push(route);
+      else this.target(route);
+    }
     window.location = route;
     return this;
   },
@@ -140,7 +144,6 @@ Waypoints.prototype = {
   navigate: function(url) {
     var route = qualifyUrl(url);
     if (this._debug) console.log('Waypoints.navigate(): navigating to', route);
-    this.target(route);
     this.route(route);
     return this;
   },
