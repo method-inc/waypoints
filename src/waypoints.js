@@ -38,6 +38,7 @@ Waypoints.prototype = {
     else if (latest && route !== latest) {
       if (this._debug) console.log('Waypoints.resume(): bad route -- route(' + route + ') does not match latest (' + latest + '), redirecting...');
       this.redirect();
+      if (shareBase(latest, route) && done) done();
       return this;
     }
 
@@ -191,6 +192,12 @@ function qualifyUrl(url) {
   var a = document.createElement('a');
   a.href = url;
   return a.href;
+}
+
+function shareBase(a, b) {
+  var baseA = a.split('#')[0];
+  var baseB = b.split('#')[0];
+  return baseA === baseB;
 }
 
 window.Waypoints = new Waypoints();
